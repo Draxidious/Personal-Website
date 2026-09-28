@@ -1,17 +1,21 @@
-import { TransformControls } from '@react-three/drei'
+import { lazy, Suspense } from 'react'
 import { Lights } from './Lights'
 import { RotatableCube } from './RotatableCube'
 
-export function Scene() {
-  const cube = <RotatableCube />
+const DevSceneEditor = import.meta.env.DEV
+  ? lazy(() => import('./DevSceneEditor'))
+  : null
 
+export function Scene() {
   return (
     <>
       <Lights />
-      {import.meta.env.DEV ? (
-        <TransformControls>{cube}</TransformControls>
+      {DevSceneEditor ? (
+        <Suspense fallback={<RotatableCube />}>
+          <DevSceneEditor />
+        </Suspense>
       ) : (
-        cube
+        <RotatableCube />
       )}
     </>
   )
