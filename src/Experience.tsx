@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import { Scene } from './components/Scene'
 
-export function App() {
+export default function Experience() {
   return (
     <Canvas
       camera={{ position: [3, 3, 3], fov: 50 }}
