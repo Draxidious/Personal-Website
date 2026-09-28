@@ -141,3 +141,6 @@ dist
 /blob-report/
 /e2e-tests/**/*-snapshots/**/*-actual.png
 /e2e-tests/**/*-snapshots/**/*-diff.png
+
+# Local-only Claude Code skills (project-specific, not for the public repo)
+/.claude/skills/
